@@ -1,0 +1,12 @@
+<div id="container">
+
+  <h1 id="title" class="survey"> <%=@survey.name%></h1>
+  <h2 id="question_1" class="question"><%=@survey.questions.first%></h2>
+  <form id="response_1" class="radio">
+
+    <% @survey.questions.first.choices.each do | choice | %>
+      <input type="radio" name="<%=choice.name%>"><%=choice.name%></br>
+    <% end %>
+  </form>
+
+</div>
