@@ -1,0 +1,9 @@
+<div class="errors">
+  <% if errors? %>
+    <ul class="errors">
+      <% @messages.each do |key, val| %> 
+        <li><%= "Sorry #{key}, #{val}" %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

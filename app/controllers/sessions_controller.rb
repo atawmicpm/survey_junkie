@@ -11,7 +11,7 @@ post '/sessions' do
       erb :index
     else
       @messages = {:error => "Incorrect username or password" }
-      erb :sign_in
+      erb :'sessions/sign_in'
     end
   end 
 end

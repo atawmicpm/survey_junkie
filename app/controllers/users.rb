@@ -1,5 +1,15 @@
-get '/users/new' do
-  erb :'users/sign_up'
+before '/user/:id' do 
+  unless authenticated?
+    redirect '/'
+    @messages = "Sorry you need to log in to get there"
+  end
+end
+
+before '/users/:id/edit' do 
+  unless authenticated?
+    erb :index
+    @messages = "Sorry you need to log in to get there"
+  end
 end
 
 get '/user/:id' do
@@ -7,25 +17,22 @@ get '/user/:id' do
   erb :'users/show', :locals => {user: user}
 end
 
-before '/users/:id/edit' do 
-  unless authenticated?
-    redirect '/'
-    @messages = "Sorry you need to log in to get there"
-  end
+get '/users/:id/edit' do
+  user = User.find(params[:id])
+  erb :edit_user, :locals => { user: user }
 end
 
-get '/users/:id/edit' do
-  @user = User.find(params[:id])
-  erb :edit_user
+get '/users/new' do
+  erb :'users/sign_up'
 end
 
 post '/users' do
-  user = User.new(:username => params[:user][:username], :email => params[:user][:email], :password_digest => params[:user][:password])
+  user = User.new(params[:user])
   if user.save 
     log_in_user(user)
-    redirect '/'
+    erb :'users/show', :locals => { user: user }
   else
     @messages = user.errors.messages
-    erb :sign_up
+    erb :'users/sign_up'
   end
 end

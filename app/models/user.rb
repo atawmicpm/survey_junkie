@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :surveys
   has_many :answers
   has_many :choices, :through => :answers
-
+  
   validates_uniqueness_of :username, :email
   validates_presence_of   :username, :email
   validates_email_format_of :email
