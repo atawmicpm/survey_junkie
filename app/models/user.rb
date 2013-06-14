@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates_presence_of   :username, :email
   validates_email_format_of :email
+  validates :password_digest, :presence => true
+  validates :password_digest, :length => { :minimum => 6 }
 
   before_create :encrypt_password
 
