@@ -4,6 +4,10 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
+  survey = Survey.create(user_id: current_user.id, name: params[:name])
+  
+
+  redirect '/surveys/new'
   # create new survey
   # redirect to /surveys/id
 end
