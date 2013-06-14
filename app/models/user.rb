@@ -12,12 +12,14 @@ class User < ActiveRecord::Base
   validates_presence_of   :username, :email
   validates_email_format_of :email
 
+  before_create :encrypt_password
+
   private
 
   def self.authenticate(email, password)
     user = User.find_by_email(email)
     if user
-      db_pass = Password.new(user.password_hash)
+      db_pass = Password.new(user.password_digest)
       db_pass == password
     else
       false
@@ -25,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def encrypt_password
-    password = Password.create(self.password_hash)
-    self.password_hash = password
+    password = Password.create(self.password_digest)
+    self.password_digest = password
   end
 end

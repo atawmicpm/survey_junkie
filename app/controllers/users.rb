@@ -1,6 +1,5 @@
 get '/users/new' do
-  # render sign-up page
-  erb :sign_up
+  erb :'users/sign_up'
 end
 
 get '/user/:id' do
@@ -21,7 +20,7 @@ get '/users/:id/edit' do
 end
 
 post '/users' do
-  user = User.new(:name => params[:user][:name], :email => params[:user][:email], :password_hash => params[:user][:password])
+  user = User.new(:username => params[:user][:username], :email => params[:user][:email], :password_digest => params[:user][:password])
   if user.save 
     log_in_user(user)
     redirect '/'

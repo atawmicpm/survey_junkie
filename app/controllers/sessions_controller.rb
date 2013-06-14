@@ -1,6 +1,6 @@
 get '/sessions/new' do
   # render sign-in page 
-  erb :sign_in
+  erb :'sessions/sign_in'
 end
 
 post '/sessions' do
@@ -18,5 +18,5 @@ end
 
 get '/logout' do
   session.clear
-  erb :index
+  redirect '/'
 end
