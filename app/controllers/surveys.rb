@@ -23,4 +23,5 @@ end
 
 get 'surveys/thank-you' do
   # static thank you page + create your own survey button
+  erb :thank_you
 end
