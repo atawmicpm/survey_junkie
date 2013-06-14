@@ -9,7 +9,8 @@ post '/surveys' do
 end
 
 get '/surveys/:id' do
-  if # current user == survey creator
+  @survey=Survey.find(params[:id])
+  if current_user == @survey.user
     erb :survey_results
   else
     erb :take_survey
