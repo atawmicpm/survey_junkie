@@ -1,26 +1,32 @@
-get '/' do
-  if current_user
-    # profile page + button to create new survey + logout/profile in nav bar
-    erb :profile
-  else
-    # marketing shit + sign up form + login drop-down in nav bar
-    erb :index
+get '/users/new' do
+  # render sign-up page
+  erb :sign_up
+end
+
+get '/user/:id' do
+  user = User.find(params[:id])
+  erb :'users/show', :locals => {user: user}
+end
+
+before '/users/:id/edit' do 
+  unless authenticated?
+    redirect '/'
+    @messages = "Sorry you need to log in to get there"
   end
 end
 
+get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :edit_user
+end
+
 post '/users' do
-  user = User.create(params[:user])
-  session[:user_id] = user.id if user
-  redirect '/'
-end
-
-post '/sessions' do
-  user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
-  session[:user_id] = user.id if user
-  redirect '/'
-end
-
-delete '/sessions/:id' do
-  session.clear
-  redirect '/'
+  user = User.new(:name => params[:user][:name], :email => params[:user][:email], :password_hash => params[:user][:password])
+  if user.save 
+    log_in_user(user)
+    redirect '/'
+  else
+    @messages = user.errors.messages
+    erb :sign_up
+  end
 end

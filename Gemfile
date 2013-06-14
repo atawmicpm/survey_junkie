@@ -2,10 +2,12 @@ source :rubygems
 
 # PostgreSQL driver
 gem 'pg'
+gem 'debugger'
+gem 'validates_email_format_of'
 
 # Sinatra driver
 gem 'sinatra'
-gem 'haml'
+
 # Use Thin for our web server
 gem 'thin'
 

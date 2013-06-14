@@ -1,8 +1,16 @@
 helpers do
 
   def current_user
-  	return User.find(session[:user_id]) if session[:user_id]
-  	nil
+    if session[:user_id]
+      @current_user ||= User.find_by_id(session[:user_id])
+    end
   end
 
+  def authenticated?
+    !current_user.nil?
+  end
+
+  def log_in_user(user)
+    session[:user_id] = user.id
+  end
 end
