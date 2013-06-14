@@ -6,7 +6,7 @@
   <form id="response_1" class="radio" method="post" action="/surveys/<%=@survey.id%>">
 
     <% @survey.questions.first.choices.each do | choice | %>
-      <input type="radio" name="radio" value=<%=choice.name%>><%=choice.name%>
+      <input type="radio" name="radio" value=<%=choice.id%>><%=choice.name%>
       </br>
     <% end %>
 

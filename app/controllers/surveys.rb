@@ -5,11 +5,19 @@ end
 
 post '/surveys/:id' do
   p params
-  # submit survey response
-  erb :thank_you
+  user = current_user
+  user.choices << Choice.find(params[:id])
+  if !user.valid?
+    @errors=user.errors
+    p @errors
+    # go back to :take_survey and deal with errors
+  else
+    erb :thank_you
+  end
 end
 
 post '/surveys' do
+
   # create new survey
   # redirect to /surveys/id
 end
