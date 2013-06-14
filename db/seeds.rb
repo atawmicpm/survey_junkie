@@ -6,7 +6,7 @@ require 'faker'
 
 
 # creator
-user = User.create(:username => "user", :email => "joe@fred.com", :password => "password")
+user = User.create(:username => "user", :email => "joe@fred.com", :password_digest => "password")
 survey = Survey.create(:name => "First Survey")
 user.surveys << survey
 question = Question.create(:name => "What is your name?")
@@ -20,5 +20,5 @@ question.choices << choice2
 user.choices << choice1 # creates entry in answers table
 
 # responder
-user2 = User.create(:username => "mary", :email => "mary@fred.com", :password => "password")
+user2 = User.create(:username => "mary", :email => "mary@fred.com", :password_digest => "password")
 user2.choices << choice2

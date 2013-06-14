@@ -22,12 +22,15 @@ post '/surveys' do
 end
 
 get '/surveys/:id' do
+  # note: need to deal with the case where a creator with a valid
+  # session responds to a survey responder URL
   @survey=Survey.find(params[:id])
-  # if current_user == @survey.user
-    # erb :survey_results
-  # else
+  if current_user == @survey.user
+    erb :survey_results
+  else
+    # collect all choices by survey.questions and summarize
     erb :take_survey
-  # end
+  end
 end
 
 get 'surveys/thank-you' do
