@@ -5,7 +5,7 @@ gem 'pg'
 
 # Sinatra driver
 gem 'sinatra'
-
+gem 'haml'
 # Use Thin for our web server
 gem 'thin'
 

@@ -18,6 +18,7 @@ require 'logger'
 require 'sinatra'
 
 require 'erb'
+require 'haml'
 require 'bcrypt'
 
 # Some helper constants for path-centric logic
