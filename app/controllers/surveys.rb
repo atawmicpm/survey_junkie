@@ -1,3 +1,4 @@
+require 'debugger'
 get '/surveys/new' do
   # crazy ajax/jquery shit
   erb :create_survey
@@ -36,4 +37,16 @@ end
 get 'surveys/thank-you' do
   # static thank you page + create your own survey button
   erb :thank_you
+end
+
+get '/surveys/:id/quick_report' do 
+  survey = Survey.find(params[:id])
+  erb :'_quick_result', :locals => { survey: survey }, :layout => false
+end
+
+get '/surveys/:id/report' do 
+  # content_type :json
+  survey = Survey.find(params[:id])
+  debugger
+  survey.graph_report.to_json
 end
