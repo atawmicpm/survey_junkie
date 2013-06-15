@@ -5,7 +5,7 @@ before '/user/:id' do
   end
 end
 
-before '/users/:id/edit' do 
+before '/user/:id/edit' do 
   unless authenticated?
     erb :index
     @messages = "Sorry you need to log in to get there"
@@ -13,11 +13,11 @@ before '/users/:id/edit' do
 end
 
 get '/user/:id' do
-  user = User.find(params[:id])
-  erb :'users/show', :locals => {user: user}
+  @user = User.find(params[:id])
+  erb :'users/show', :locals => {:user => @user}
 end
 
-get '/users/:id/edit' do
+get '/user/:id/edit' do
   user = User.find(params[:id])
   erb :edit_user, :locals => { user: user }
 end

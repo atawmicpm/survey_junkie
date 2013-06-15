@@ -22,7 +22,7 @@
 
     <ul>
       <% if authenticated? %>
-        <li><a id="profile" href="/users/id">Profile</a></li>
+        <li><a id="profile" href="/user/<%= current_user.id %>">Profile</a></li>
         <li><a id="log-out" href="/logout">Logout</a></li>
       <% else %>
         <li><a id="sign-in"href="/sessions/new">Sign In</a></li>
