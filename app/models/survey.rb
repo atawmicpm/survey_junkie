@@ -15,6 +15,19 @@ class Survey < ActiveRecord::Base
   return report_hash
   end
 
+  def graph_report
+    i = 0
+    report_array = []
+    report_hash = {}
+    self.questions.each do |question|
+      question.choices.each do |choice|
+        report_hash["value_#{i}"] = choice.answers.length
+      end
+    end
+    report_array << report_hash
+    report_array
+  end
+
   def response_count
     count = 0
     self.questions.each {|question| question.choices.each {|choice| count += choice.users.length }}
