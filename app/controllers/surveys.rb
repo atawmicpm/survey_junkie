@@ -4,8 +4,9 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  survey = Survey.create(user_id: current_user.id, name: params[:name])
-  
+
+  # this needs to be passed some sort of data structure for question and choices
+  Survey.publish(current_user.id, params)
 
   redirect '/surveys/new'
   # create new survey
