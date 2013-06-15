@@ -4,13 +4,11 @@ get '/surveys/new' do
 end
 
 post '/surveys/:id' do
-  p params
   user = current_user
   user.choices << Choice.find(params[:id])
   if !user.valid?
     @errors=user.errors
-    p @errors
-    # go back to :take_survey and deal with errors
+    erb :take_survey # error listing is in layout.erb
   else
     erb :thank_you
   end
@@ -26,9 +24,11 @@ get '/surveys/:id' do
   # session responds to a survey responder URL
   @survey=Survey.find(params[:id])
   if current_user == @survey.user
+    @results = @survey.report
+    p @results
     erb :survey_results
   else
-    # collect all choices by survey.questions and summarize
+
     erb :take_survey
   end
 end

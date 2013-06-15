@@ -1,0 +1,14 @@
+
+<ol>
+<% @results.each_pair do |key, val| %>
+  <li> <%= key %> </li>
+  <ul>
+    <% val.each do |choice| %>
+      <li><% choice.each_pair do |k, v| %>
+        <%= k %>: <%= v %></li>
+        <% end %>
+    <% end %>
+  </ul>
+<% end %>
+</ol>
+
