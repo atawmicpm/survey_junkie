@@ -15,6 +15,12 @@ class Survey < ActiveRecord::Base
   return report_hash
   end
 
+  def response_count
+    count = 0
+    self.questions.each {|question| question.choices.each {|choice| count += choice.users.length }}
+    return count
+  end
+
 
 	def self.publish(user_id, params)
 	  # name => best survey?
@@ -38,6 +44,4 @@ class Survey < ActiveRecord::Base
 			end
 	  end
 	end
-
-
 end

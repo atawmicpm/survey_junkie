@@ -1,0 +1,14 @@
+<table border="1">
+  <tr>
+    <th>Survey Name</th>
+    <th>Number of Responses</th>
+    <th>Link</th>
+  </tr>
+  <% user.surveys.each do |survey| %>
+  <tr>
+    <td><%= survey.name %></td>
+    <td><%= survey.response_count %></td>
+    <td>survey link</td>
+  </tr>
+  <% end %>
+</table>
