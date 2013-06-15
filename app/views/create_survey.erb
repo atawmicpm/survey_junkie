@@ -1,13 +1,29 @@
 <form action="/surveys" method="post">
 	<input id="survey_name"	name="name"			placeholder="survey name..."><br><br>
+  <a href="#" id="add-question">add question</a>
 
-	<input id="q1" class="question" name="q1[q]" placeholder="question..."><br>
-	<input id="q1c1" class="choice"		name="q1[c1]"		placeholder="choice..."><br><br>
-	
-		<input id="q2" class="question" name="q2[q]" placeholder="question..."><br>
-		<input id="q2c1" class="choice"		name="q2[c1]"		placeholder="choice..."><br>
-		<input id="q2c2" class="choice"		name="q2[c2]"		placeholder="choice..."><br>
-
+  <div id="all-questions">
+    <div class="survey-question">
+    	<input class="question" name="q1[q]"    placeholder="question...">
+    	<input class="choice"		name="q1[c1]"		placeholder="choice...">
+      <input class="choice"   name="q1[c2]"   placeholder="choice...">
+    </div>
+    <a href="#" class="add-choice">add choice</a>
+    <a href="#" class="delete-choice">delete choice</a>
+    <a href="#" class="delete-question">delete question</a>
+  </div>
 
 	<input class="submit"	type="submit" value="Submit">
 </form>
+
+
+<div id="question-template" style="display: none;">
+  <div class="survey-question">
+    <input class="question" name="q1[q]"    placeholder="question...">
+    <input class="choice"   name="q1[c1]"   placeholder="choice...">
+    <input class="choice"   name="q1[c2]"   placeholder="choice...">
+  </div>
+  <a href="#" class="add-choice">add choice</a>
+  <a href="#" class="delete-choice">delete choice</a>
+  <a href="#" class="delete-question">delete question</a>
+</div>
