@@ -1,4 +1,5 @@
-
+<div class="container">
+<h1> <%= @survey.name %> </h1>
 <ol>
 <% @results.each_pair do |key, val| %>
   <li> <%= key %> </li>
@@ -11,4 +12,4 @@
   </ul>
 <% end %>
 </ol>
-
+</div>
