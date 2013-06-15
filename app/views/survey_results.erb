@@ -1,5 +1,6 @@
 <div class="container">
 <h1> <%= @survey.name %> </h1>
+Public Link:<a id="survey_link" href="/surveys/"<%=@survey.id%>>/survey/<%=@survey.id%></a>
 <ol>
 <% @results.each_pair do |key, val| %>
   <li> <%= key %> </li>
