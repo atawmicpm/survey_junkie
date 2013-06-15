@@ -130,10 +130,13 @@ footer div {
 }
 
 .funny-text {
-  width: 1000px;
   font-size: 30px;
   text-align: center;
   margin: 0 auto;
+}
+
+.edit-profile {
+  display: none;
 }
 
 /* Form focus transition */

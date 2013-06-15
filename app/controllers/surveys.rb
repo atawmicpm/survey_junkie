@@ -26,7 +26,6 @@ get '/surveys/:id' do
   @survey=Survey.find(params[:id])
   if current_user == @survey.user
     @results = @survey.report
-    p @results
     erb :survey_results
   else
 
@@ -47,6 +46,6 @@ end
 get '/surveys/:id/report' do 
   # content_type :json
   survey = Survey.find(params[:id])
-  debugger
+  # debugger
   survey.graph_report.to_json
 end
