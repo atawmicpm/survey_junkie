@@ -14,23 +14,20 @@
 <body>
 
   <nav>
-
     <div class="logo-box">
       <a href="/"><img class="logo" src="/images/logo.png" alt="logo"></a>
     </div>
 
     <ul>
-      <% if authenticated? %>
+      <% unless current_user %>
         <li><a id="profile" href="/users/id">Profile</a></li>
-        <li><a id="log-out" href="/logout">Logout</a></li>
+        <li><a id="log-out" href="/sessions/id">Logout</a></li>
       <% else %>
         <li><a id="sign-in"href="/sessions/new">Sign In</a></li>
       <% end %>
     </ul>
+
   </nav>
-
-  <%= erb :_errors %>
-
   <div class="container">
     <%= yield %>
   </div>
