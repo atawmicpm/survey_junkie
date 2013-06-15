@@ -124,8 +124,6 @@ footer div {
   text-size: 25px;
 }
 
-
-
 .funny-box {
   width: 100%;
   padding-top: 80px;
@@ -136,3 +134,15 @@ footer div {
   font-size: 30px;
   text-align: center;
   margin: 0 auto;
+}
+
+/* Form focus transition */
+
+input {
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: 500ms;
+}
+
+input:focus {
+  background-color: #EEE8AA;
+}

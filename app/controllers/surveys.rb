@@ -16,8 +16,8 @@ post '/surveys/:id' do
 end
 
 post '/surveys' do
-  Survey.publish(current_user.id, params)
-  redirect '/surveys/new'
+  survey = Survey.publish(current_user.id, params)
+  redirect "/surveys/#{survey.id}"
 end
 
 get '/surveys/:id' do
