@@ -14,17 +14,36 @@ $(document).ready(function () {
     $('#all-questions').append(buildQuestion());
   });
 
+  // delete a question from a survey
+  $('#all-questions').on('click', '.delete-question', function(e) {
+    e.preventDefault();
+    var question = $(this).closest('div');
+    question.remove();
+  });
+
+  // add a choice to a question
   $('#all-questions').on('click', '.add-choice', function(e) {
     e.preventDefault();
-    var question = $(this).prev();
+    var question = $(this).closest('div').children().first();
     question.append(buildChoice(question));
   });
 
+  // delete a choice from a question
+  $('#all-questions').on('click', '.delete-choice', function(e) {
+    e.preventDefault();
+    var choice = $(this).closest('div').children().first().children().last();
+    choice.remove();
+  });
+
   function buildQuestion() {
-    var totalQuestions = $('.survey-question').length;
+    var lastQuestion = $('#all-questions').children().last();
+    var lastQuestionNum = 1;
+    if (lastQuestion.length > 0) {
+      lastQuestionNum = lastQuestion.children().find('.question').attr('name').match(/q(\d)/)[1];
+    }
     var $question = $(questionTemplate);
     $question.find('input').attr('name', function(i, val) {
-      return val.replace('q1', 'q' + totalQuestions);
+      return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
     });
     return $question;
   }

@@ -3,14 +3,16 @@
   <a href="#" id="add-question">add question</a>
 
   <div id="all-questions">
-    <div class="survey-question">
-    	<input class="question" name="q1[q]"    placeholder="question...">
-    	<input class="choice"		name="q1[c1]"		placeholder="choice...">
-      <input class="choice"   name="q1[c2]"   placeholder="choice...">
+    <div class="survey-question-box">
+      <div class="survey-question">
+      	<input class="question" name="q1[q]"    placeholder="question...">
+      	<input class="choice"		name="q1[c1]"		placeholder="choice...">
+        <input class="choice"   name="q1[c2]"   placeholder="choice...">
+      </div>
+      <a href="#" class="add-choice">add choice</a>
+      <a href="#" class="delete-choice">delete choice</a>
+      <a href="#" class="delete-question">delete question</a>
     </div>
-    <a href="#" class="add-choice">add choice</a>
-    <a href="#" class="delete-choice">delete choice</a>
-    <a href="#" class="delete-question">delete question</a>
   </div>
 
 	<input class="submit"	type="submit" value="Submit">
@@ -18,12 +20,14 @@
 
 
 <div id="question-template" style="display: none;">
-  <div class="survey-question">
-    <input class="question" name="q1[q]"    placeholder="question...">
-    <input class="choice"   name="q1[c1]"   placeholder="choice...">
-    <input class="choice"   name="q1[c2]"   placeholder="choice...">
+  <div class="survey-question-box">
+    <div class="survey-question">
+      <input class="question" name="q1[q]"    placeholder="question...">
+      <input class="choice"   name="q1[c1]"   placeholder="choice...">
+      <input class="choice"   name="q1[c2]"   placeholder="choice...">
+    </div>
+    <a href="#" class="add-choice">add choice</a>
+    <a href="#" class="delete-choice">delete choice</a>
+    <a href="#" class="delete-question">delete question</a>
   </div>
-  <a href="#" class="add-choice">add choice</a>
-  <a href="#" class="delete-choice">delete choice</a>
-  <a href="#" class="delete-question">delete question</a>
 </div>
