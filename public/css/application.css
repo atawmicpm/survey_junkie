@@ -149,3 +149,13 @@ input {
 input:focus {
   background-color: #EEE8AA;
 }
+
+.question {
+  margin-top: 1em;
+  line-height: 1.5em;
+}
+
+.choice {
+  font-size: 90%;
+  list-style-type: none;
+}
