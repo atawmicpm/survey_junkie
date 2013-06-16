@@ -1,7 +1,8 @@
 /* Site Wrapper */
 
 body {
-  background-color: #16a085;
+  background-image:url("/images/bg.jpg");
+  background-color: #8B3626;
   font-family: "Montserrat Alternates";
 }
 
