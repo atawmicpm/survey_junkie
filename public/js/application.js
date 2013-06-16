@@ -18,20 +18,22 @@ $(document).ready(function () {
   $('#all-questions').on('click', '.delete-question', function(e) {
     e.preventDefault();
     var question = $(this).closest('div');
-    question.effect('blind').remove();
+    // question.fadeOut(300, function() { $(this).remove() });
+    question.hide('blind', {}, 300, function() { $(this).remove() });
+
   });
 
   // add a choice to a question
   $('#all-questions').on('click', '.add-choice', function(e) {
     e.preventDefault();
-    var question = $(this).closest('div').children().first();
+    var question = $(this).prev().children().next();
     question.append(buildChoice(question));
   });
 
   // delete a choice from a question
   $('#all-questions').on('click', '.delete-choice', function(e) {
     e.preventDefault();
-    var choice = $(this).closest('div').children().first().children().last();
+    var choice = $(this).prev().prev().children().next().children().last();
     choice.remove();
   });
 
@@ -45,7 +47,7 @@ $(document).ready(function () {
     $question.find('input').attr('name', function(i, val) {
       return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
     });
-    return $question.hide().delay(1).show().effect('pulsate');
+    return $question.hide().delay(1).fadeIn(300);//.effect('pulsate');
   }
 
   function buildChoice(question) {
