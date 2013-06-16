@@ -24,10 +24,18 @@
 
     <ul>
       <% if authenticated? %>
-        <li><a id="profile" href="/user/<%= current_user.id %>">Profile</a></li>
-        <li><a id="log-out" href="/logout">Logout</a></li>
+        <li id="profile-link"><a href="/user/<%= current_user.id %>">Profile</a></li>
+        <li id="log-out-link"><a href="/logout">Logout</a></li>
       <% else %>
-        <li><a id="sign-in"href="/sessions/new">Sign In</a></li>
+        <li id="sign-in-link"><a href="#">Sign In</a>
+          <div class="sign-in-box" style="display: none;">
+            <form class="sign-in-form" method="post" action="/sessions">
+              <input class="input" type="email" name="email" placeholder="email">
+              <input class="input" type="password" name="password" placeholder="password">
+              <input class="sign-in-button" type="submit" value="Sign In">
+            </form>
+          </div>
+        </li>
       <% end %>
     </ul>
   </nav>
