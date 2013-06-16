@@ -18,7 +18,7 @@ $(document).ready(function () {
   $('#all-questions').on('click', '.delete-question', function(e) {
     e.preventDefault();
     var question = $(this).closest('div');
-    question.remove();
+    question.effect('blind').remove();
   });
 
   // add a choice to a question
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $question.find('input').attr('name', function(i, val) {
       return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
     });
-    return $question;
+    return $question.hide().delay(1).show().effect('pulsate');
   }
 
   function buildChoice(question) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
   }
 
   $("#all-questions").sortable({
-    
+
   });
 
 });
