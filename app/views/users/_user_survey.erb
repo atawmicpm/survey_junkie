@@ -1,14 +1,16 @@
 <table border="1">
   <tr>
     <th>Survey Name</th>
-    <th>Number of Responses</th>
-    <th>Link</th>
+    <th>Responses</th>
+    <th>Public Link</th>
+    <th>Current Stats</th>
   </tr>
   <% user.surveys.each do |survey| %>
   <tr>
     <td><%= survey.name %></td>
     <td><%= survey.response_count %></td>
-    <td><a class="results" id="<%= survey.id %>" href="#">survey link</a></td>
+    <td><a href="/surveys/<%=survey.id%>">/surveys/<%=survey.id%></td>
+    <td><a class="results" id=<%= survey.id %> href="#">id: <%= survey.id%></a></td>
   </tr>
   <% end %>
 </table>

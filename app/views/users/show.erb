@@ -1,10 +1,10 @@
 <div class="user-profile">
   <div class="username">
-    <h1><%= user.username %></h1>
+    <h1>Profile: <%= user.username %></h1>
   </div>
 
   <div class="open-surveys">
-    <h1>Your Surveys</h1>
+    <h2>Your Surveys</h2>
     <%= erb :'users/_user_survey', :locals => {:user => user } %>
   </div>
 

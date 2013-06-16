@@ -1,11 +1,12 @@
 <div class="container">
 <h1> <%= @survey.name %> </h1>
+Public Link:<a id="survey_link" href="/surveys/"<%=@survey.id%>>/surveys/<%=@survey.id%></a>
 <ol>
 <% @results.each_pair do |key, val| %>
-  <li> <%= key %> </li>
-  <ul>
+  <li class='question'> <%= key %> </li>
+  <ul class='choice'>
     <% val.each do |choice| %>
-      <li><% choice.each_pair do |k, v| %>
+      <li class='choice'><% choice.each_pair do |k, v| %>
         <%= k %>: <%= v %></li>
         <% end %>
     <% end %>

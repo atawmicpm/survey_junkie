@@ -23,13 +23,17 @@ end
 get '/surveys/:id' do
   # note: need to deal with the case where a creator with a valid
   # session responds to a survey responder URL
+  unless authenticated?
+    @messages = {:error => "Please log in first" }
+    erb :'sessions/sign_in'
+    redirect '/sessions/new'
+  end
+
   @survey=Survey.find(params[:id])
   if current_user == @survey.user
     @results = @survey.report
-    p @results
     erb :survey_results
-  else
-
+  elsif
     erb :take_survey
   end
 end
@@ -47,6 +51,6 @@ end
 get '/surveys/:id/report' do 
   # content_type :json
   survey = Survey.find(params[:id])
-  debugger
+  # debugger
   survey.graph_report.to_json
 end
