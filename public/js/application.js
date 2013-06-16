@@ -56,4 +56,9 @@ $(document).ready(function () {
     });
     return newChoice[0];
   }
+
+  $("#all-questions").sortable({
+    
+  });
+
 });
