@@ -26,10 +26,10 @@
 
     <ul>
       <% if authenticated? %>
-        <li id="profile-link"><a href="/user/<%= current_user.id %>">Profile</a></li>
-        <li id="log-out-link"><a href="/logout">Logout</a></li>
+        <li><a id="profile-link"href="/user/<%= current_user.id %>">Profile</a></li>
+        <li><a id="log-out-link" href="/logout">Logout</a></li>
       <% else %>
-        <li id="sign-in-link"><a href="#">Sign In</a>
+        <li><a id="sign-in-link" href="#">Sign In</a>
           <div class="sign-in-box" style="display: none;">
             <form class="sign-in-form" method="post" action="/sessions">
               <input class="input" type="email" name="email" placeholder="email">

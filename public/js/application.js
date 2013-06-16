@@ -63,4 +63,8 @@ $(document).ready(function () {
     axis: 'y'
   });
 
+  $('#sign-in-link').on('click', function(e) {
+    e.preventDefault();
+    $('.sign-in-box').css('display', 'inline-block');
+  });
 });
