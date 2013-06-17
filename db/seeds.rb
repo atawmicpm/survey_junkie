@@ -5,7 +5,7 @@
 #TODO: Once you have implemented BCrypt - you can use these to seed your database.
 
 # creator
-user = User.create(:username => "amy", :email => "amy@rehab.com", :password_digest => "password")
+user = User.create(:username => "foo", :email => "foo@bar.com", :password_digest => "password")
 survey = Survey.create(:name => "Street Names")
 user.surveys << survey
 
@@ -78,5 +78,5 @@ question.choices << choice5
 user.choices << choice1 # creates entry in answers table
 
 # responder
-user2 = User.create(:username => "jimmy", :email => "jimmy@hendrix.com", :password_digest => "password")
+user2 = User.create(:username => "baz", :email => "foo@baz.com", :password_digest => "password")
 user2.choices << choice2
