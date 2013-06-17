@@ -50,6 +50,9 @@ $(document).ready(function () {
     $question.find('.question').attr('name', function(i, val) {
       return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
     });
+    $question.find('.choice').attr('name', function(i, val) {
+      return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
+    });
     return $question.hide().delay(1).fadeIn(300);//.effect('pulsate');
   }
 

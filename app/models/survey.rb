@@ -36,7 +36,7 @@ class Survey < ActiveRecord::Base
 	  # name => best survey?
 	  # q1 => {"q"=>"who da man?", "c1"=>"phillip"}
 	  # q2 => {"q"=>"best language?", "c1"=>"ruby", "c2"=>"javascript"}
-
+    p "-------------#{params}"
 	  params.each do |form_field|
 	  	case form_field.first
 	  	when 'name'
