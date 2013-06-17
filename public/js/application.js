@@ -17,7 +17,7 @@ $(document).ready(function () {
   // delete a question from a survey
   $('#all-questions').on('click', '.delete-question', function(e) {
     e.preventDefault();
-    var question = $(this).closest('div');
+    var question = $(this).parent().parent();
     // question.fadeOut(300, function() { $(this).remove() });
     question.hide('blind', {}, 300, function() { $(this).remove() });
 
@@ -26,19 +26,24 @@ $(document).ready(function () {
   // add a choice to a question
   $('#all-questions').on('click', '.add-choice', function(e) {
     e.preventDefault();
-    var question = $(this).prev().children().next();
-    question.append(buildChoice(question));
+    var choices = $(this).parent();
+    choices.append(buildChoice(choices));
   });
 
   // delete a choice from a question
   $('#all-questions').on('click', '.delete-choice', function(e) {
     e.preventDefault();
-    var choice = $(this).prev().prev().children().next().children().last();
-    choice.remove();
+    var totalChoices = $(this).parent().find('input').length;
+    console.log(totalChoices);
+    if (totalChoices >= 3) {
+      var choice = $(this).parent().children().last();
+      choice.remove();
+    }
   });
 
   function buildQuestion() {
     var lastQuestion = $('#all-questions').children().last();
+    console.log(lastQuestion);
     var lastQuestionNum = 1;
     if (lastQuestion.length > 0) {
       lastQuestionNum = lastQuestion.children().find('.question').attr('name').match(/q(\d)/)[1];
@@ -50,9 +55,11 @@ $(document).ready(function () {
     return $question.hide().delay(1).fadeIn(300);//.effect('pulsate');
   }
 
-  function buildChoice(question) {
-    var totalChoices = question.find('input').length;
-    var lastChoice = question.children().last();
+  function buildChoice(choices) {
+    var totalChoices = choices.find('input').length;
+    console.log(totalChoices);
+    totalChoices++;
+    var lastChoice = choices.children().last();
     var newChoice = lastChoice.clone().attr('name', function(i, val) {
       return val.replace(/c\d/, 'c' + totalChoices);
     });
