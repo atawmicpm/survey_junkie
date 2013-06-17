@@ -242,3 +242,24 @@ input:focus {
   left: 20px;
   top: 100px;
 }
+
+.survey-quickview {
+  width: 90%;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #bdc3c7;
+  box-shadow: 10px 0px 15px -7px #1f3347, -10px 0px 15px -7px #1f3347;
+}
+
+.survey-quickresults {
+  padding: 40px;
+}
+
+.legend {
+  width: 50%;
+  float: right;
+  margin-top: -420px;
+  margin-right: 200px;
+}
+>>>>>>> working on survey results

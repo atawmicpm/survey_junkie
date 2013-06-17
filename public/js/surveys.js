@@ -5,15 +5,13 @@ $(document).ready(function(){
       method: 'get',
       url: '/surveys/'+$('.results').attr('id')+'/quick_report'
     }).success(function(response){
-      $('.user-profile').append(response);
+      $('.survey-quickview').append(response);
       $.ajax({
         method: 'get',
         url: '/surveys/'+$('.results').attr('id')+'/report'
       }).success(function(response){
-        console.log(response);
         var data = fixResponse(response);
         var ctx = $("#myChart").get(0).getContext("2d");
-        console.log(ctx);
         var myNewChart = new Chart(ctx);
         new Chart(ctx).Pie(data);
       });

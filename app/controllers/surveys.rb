@@ -49,8 +49,6 @@ get '/surveys/:id/quick_report' do
 end
 
 get '/surveys/:id/report' do 
-  # content_type :json
   survey = Survey.find(params[:id])
-  # debugger
   survey.graph_report.to_json
 end

@@ -16,15 +16,12 @@ class Survey < ActiveRecord::Base
   end
 
   def graph_report
-    i = 0
     report_array = []
-    report_hash = {}
     self.questions.each do |question|
       question.choices.each do |choice|
-        report_hash["value_#{i}"] = choice.answers.length
+        report_array << Hash["value", choice.answers.length]
       end
     end
-    report_array << report_hash
     report_array
   end
 
