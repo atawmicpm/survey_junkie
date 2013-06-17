@@ -1,11 +1,16 @@
 <div class="survey-quickresults">
-  <h1><%= survey.name %></h1>
+  <h1>Quick View for <%= survey.name %></h1>
   <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 <div class="legend">
-  <ul class="legend">
+  <h1>Legend</h1>
+  <ul class="legend-list">
+    <% i = 0 %>
   <% survey.questions.first.choices.each do |choice| %>
-  <li><%= choice.name %>   <%= choice.answers.count %></li>
+  <li><span class="legend-color" id="<%= choice.name.split(" ").first %>">____</span>  <%= choice.name %>   <%= choice.answers.count %></li>
+  <% i += 1 %>
   <% end %>
   </ul>
+
+  <a href="/surveys/<%= survey.id %>">See full results</a>
 </div>

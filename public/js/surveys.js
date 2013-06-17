@@ -22,7 +22,11 @@ $(document).ready(function(){
     var data = jQuery.parseJSON(response);
     for(i=0; i < data.length; i++)
     {
-      data[i].color = '#'+Math.floor(Math.random()*16777215).toString(16);
+      var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+      data[i].color = color;
+      $('#'+ data[i].choice.split(" ")[0] + '').css('background-color', color);
+      $('#'+ data[i].choice.split(" ")[0] + '').css('color', color);
+      console.log(data[i]);
     }
     // console.log(response);
     return data;

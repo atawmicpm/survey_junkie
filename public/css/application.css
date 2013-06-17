@@ -247,7 +247,6 @@ input:focus {
   width: 90%;
   border-radius: 30px;
   margin: 0 auto;
-  margin-top: 100px;
   background-color: #bdc3c7;
   box-shadow: 10px 0px 15px -7px #1f3347, -10px 0px 15px -7px #1f3347;
 }
@@ -260,5 +259,55 @@ input:focus {
   width: 50%;
   float: right;
   margin-top: -420px;
-  margin-right: 200px;
+}
+
+.open-surveys {
+  text-align: center;
+}
+
+.open-surveys h2 {
+  font-size: 30px;
+}
+
+.open-surveys table {
+  text-align: center;
+  font-size: 24px;
+  margin-left: 23%;
+}
+
+.user-profile {
+  padding: 5%;
+}
+
+.create_survey {
+  margin-top: -60px;
+}
+
+.legend-list {
+  list-style: none;
+}
+
+
+.btn-large {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background-color:#ededed;
+  -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  border-radius:15px;
+  border:3px solid #dcdcdc;
+  display:inline-block;
+  color:#8c1c8c;
+  font-family:arial;
+  font-size:29px;
+  font-weight:bold;
+  padding:8px 13px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #ffffff;
+}.btn-large:hover {
+  background-color:#dfdfdf;
+}.btn-large:active {
+  position:relative;
+  top:1px;
 }

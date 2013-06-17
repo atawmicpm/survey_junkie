@@ -19,7 +19,7 @@ class Survey < ActiveRecord::Base
     report_array = []
     self.questions.each do |question|
       question.choices.each do |choice|
-        report_array << Hash["value", choice.answers.length]
+        report_array << Hash["value", choice.answers.length, "choice", choice.name]
       end
     end
     report_array
