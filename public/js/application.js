@@ -67,4 +67,15 @@ $(document).ready(function () {
     e.preventDefault();
     $('.sign-in-box').css('display', 'inline-block');
   });
+
+  $(window).scroll(function () {
+    var scrollPosition = $(this).scrollTop();
+
+    if (scrollPosition >= 20) {
+      $('#top-box').addClass('fixed');
+    }
+    else {
+      $('#top-box').removeClass('fixed');
+    }
+  });
 });

@@ -1,4 +1,5 @@
-require 'debugger'
+# require 'debugger'
+
 get '/surveys/new' do
   # crazy ajax/jquery shit
   erb :create_survey
@@ -33,7 +34,7 @@ get '/surveys/:id' do
   if current_user == @survey.user
     @results = @survey.report
     erb :survey_results
-  elsif
+  else
     erb :take_survey
   end
 end

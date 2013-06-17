@@ -1,37 +1,39 @@
 <form action="/surveys" method="post">
-	<input id="survey_name"	name="name"			placeholder="survey name..." required><br><br>
-  <a href="#" id="add-question">add question</a>
+	<div id="top-box">
+    <input class="survey_name" name="name" placeholder="survey name..." required><br><br>
+    <a class="add-question" href="#" id="add-question">Add question</a>
+    <input id="survey-submit" type="submit" value="Submit">
+  </div>
 
   <div id="all-questions">
     <div class="survey-question-box">
       <div class="survey-question">
       	<textarea class="question" name="q1[q]" placeholder="question..." cols="40" rows="2" required></textarea>
       	<div class="choice-box">
+          <a href="#" class="add-choice">Add choice</a>
+          <a href="#" class="delete-choice">Delete choice</a>
           <input class="choice"	name="q1[c1]" placeholder="choice...">
           <input class="choice" name="q1[c2]" placeholder="choice...">
         </div>
+        <a href="#" class="delete-question">Delete question</a>
       </div>
-      <a href="#" class="add-choice">add choice</a>
-      <a href="#" class="delete-choice">delete choice</a>
-      <a href="#" class="delete-question">delete question</a>
     </div>
   </div>
-
-	<input class="submit"	type="submit" value="Submit">
 </form>
 
 
 <div id="question-template" style="display: none;">
   <div class="survey-question-box">
-    <div class="survey-question">
-      <textarea class="question" name="q1[q]" placeholder="question..." cols="40" rows="2" required></textarea>
+      <div class="survey-question">
+        <textarea class="question" name="q1[q]" placeholder="question..." cols="40" rows="2" required></textarea>
         <div class="choice-box">
+          <a href="#" class="add-choice">add choice</a>
+          <a href="#" class="delete-choice">delete choice</a>
           <input class="choice" name="q1[c1]" placeholder="choice...">
           <input class="choice" name="q1[c2]" placeholder="choice...">
         </div>
+        <a href="#" class="delete-question">delete question</a>
+      </div>
     </div>
-    <a href="#" class="add-choice">add choice</a>
-    <a href="#" class="delete-choice">delete choice</a>
-    <a href="#" class="delete-question">delete question</a>
   </div>
 </div>
