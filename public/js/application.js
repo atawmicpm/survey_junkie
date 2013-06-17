@@ -34,7 +34,6 @@ $(document).ready(function () {
   $('#all-questions').on('click', '.delete-choice', function(e) {
     e.preventDefault();
     var totalChoices = $(this).parent().find('input').length;
-    console.log(totalChoices);
     if (totalChoices >= 3) {
       var choice = $(this).parent().children().last();
       choice.remove();
@@ -43,13 +42,12 @@ $(document).ready(function () {
 
   function buildQuestion() {
     var lastQuestion = $('#all-questions').children().last();
-    console.log(lastQuestion);
     var lastQuestionNum = 1;
     if (lastQuestion.length > 0) {
       lastQuestionNum = lastQuestion.children().find('.question').attr('name').match(/q(\d)/)[1];
     }
     var $question = $(questionTemplate);
-    $question.find('input').attr('name', function(i, val) {
+    $question.find('.question').attr('name', function(i, val) {
       return val.replace('q1', 'q' + (parseInt(lastQuestionNum) + 1));
     });
     return $question.hide().delay(1).fadeIn(300);//.effect('pulsate');
@@ -57,7 +55,6 @@ $(document).ready(function () {
 
   function buildChoice(choices) {
     var totalChoices = choices.find('input').length;
-    console.log(totalChoices);
     totalChoices++;
     var lastChoice = choices.children().last();
     var newChoice = lastChoice.clone().attr('name', function(i, val) {
